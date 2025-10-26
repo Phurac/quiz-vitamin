@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Trắc nghiệm Vitamin – Y học cơ sở (50 câu)</title>
+<style>
+  :root{--bg:#f7fbff;--card:#fff;--accent:#0b74de;--ok:#2d9a4a;--bad:#d93025;}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:var(--bg); margin:0;padding:24px;color:#111;}
+  .wrap{max-width:980px;margin:0 auto;}
+  header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  h1{font-size:1.4rem;margin:0}
+  p.lead{margin:0;color:#333}
+  .card{background:var(--card);border-radius:10px;padding:18px;box-shadow:0 6px 18px rgba(10,20,40,0.06);margin-bottom:16px}
+  .q{margin-bottom:14px;padding:12px;border-radius:8px;border:1px solid #eef3fb}
+  .q h3{font-size:1rem;margin:0 0 8px 0}
+  .opts{display:grid;gap:8px}
+  label.opt{display:flex;align-items:center;gap:10px;padding:8px;border-radius:6px;cursor:pointer;border:1px solid transparent;}
+  label.opt:hover{background:#f3f8ff}
+  input[type="radio"]{transform:scale(1.02)}
+  .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+  button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600}
+  button.secondary{background:#e9f2ff;color:var(--accent);border:1px solid #cfe6ff}
+  .score{font-weight:700;padding:8px 12px;border-radius:8px}
+  .result{margin-top:12px;padding:12px;border-radius:8px}
+  .correct{background:linear-gradient(90deg,#eaffef,#f0fff4);border-left:4px solid var(--ok)}
+  .incorrect{background:linear-gradient(90deg,#fff2f2,#fff8f8);border-left:4px solid var(--bad)}
+  .answer{font-size:0.95rem;margin-top:8px;color:#333;display:none}
+  footer{margin-top:18px;color:#666;font-size:0.9rem}
+  .hidden{display:none}
+  .logo{width:44px;height:44px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 3px 8px rgba(0,0,0,0.06)}
+  @media (max-width:720px){ .wrap{padding:8px} header{flex-direction:column;align-items:flex-start} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">💊</div>
+    <div>
+      <h1>Trắc nghiệm Vitamin – Y học cơ sở</h1>
+      <p class="lead">50 câu trắc nghiệm (4 lựa chọn). Chọn 1 đáp án cho mỗi câu, nhấn "Chấm điểm" để xem kết quả.</p>
+    </div>
+  </header>
+
+  <form id="quizForm" class="card" autocomplete="off">
+    <div class="controls">
+      <button type="button" id="checkBtn">Chấm điểm</button>
+      <button type="button" id="resetBtn" class="secondary">Làm lại</button>
+      <div id="scoreBox" class="score hidden"></div>
+    </div>
+
+    <!-- BEGIN QUESTIONS -->
+    <!-- Note: Each .q has data-answer attribute with the correct option letter A/B/C/D.
+         Also each input radio name is q1..q50 so they group correctly. -->
+    <!-- The 3 mức (Nhận biết/Thông hiểu/Vận dụng) are encoded in comments only. -->
+
+    <!-- ========== NHẬN BIẾT (20 câu) ========== -->
+    <div class="q" data-answer="B" id="q1">
+      <h3>1. Vitamin là gì?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q1" value="A"> A. Chất vô cơ tạo năng lượng</label>
+        <label class="opt"><input type="radio" name="q1" value="B"> B. Chất hữu cơ có hoạt tính sinh học cần thiết cho cơ thể</label>
+        <label class="opt"><input type="radio" name="q1" value="C"> C. Enzym tiêu hóa</label>
+        <label class="opt"><input type="radio" name="q1" value="D"> D. Hormone tuyến giáp</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q2">
+      <h3>2. Vitamin được chia chính vào mấy nhóm theo độ hòa tan?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q2" value="A"> A. Hai nhóm: tan trong nước và tan trong lipid</label>
+        <label class="opt"><input type="radio" name="q2" value="B"> B. Ba nhóm</label>
+        <label class="opt"><input type="radio" name="q2" value="C"> C. Bốn nhóm</label>
+        <label class="opt"><input type="radio" name="q2" value="D"> D. Năm nhóm</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q3">
+      <h3>3. Vitamin tan trong nước thuộc nhóm nào sau đây?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q3" value="A"> A. A, D, E, K</label>
+        <label class="opt"><input type="radio" name="q3" value="B"> B. Các vitamin nhóm B và vitamin C</label>
+        <label class="opt"><input type="radio" name="q3" value="C"> C. Chỉ vitamin A</label>
+        <label class="opt"><input type="radio" name="q3" value="D"> D. Tất cả các vitamin tan trong dầu</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q4">
+      <h3>4. Vitamin A là tiền chất của hợp chất nào giúp thị giác?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q4" value="A"> A. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q4" value="B"> B. Retinal (aldehyd retinol)</label>
+        <label class="opt"><input type="radio" name="q4" value="C"> C. Calciferol</label>
+        <label class="opt"><input type="radio" name="q4" value="D"> D. Tocopherol</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q5">
+      <h3>5. β-Carotene là gì?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q5" value="A"> A. Một dạng vitamin D</label>
+        <label class="opt"><input type="radio" name="q5" value="B"> B. Tiền vitamin A có hoạt tính chống oxi hóa</label>
+        <label class="opt"><input type="radio" name="q5" value="C"> C. Một khoáng chất</label>
+        <label class="opt"><input type="radio" name="q5" value="D"> D. Một enzyme tiêu hóa</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q6">
+      <h3>6. Vitamin D giúp tăng hấp thu chất nào ở ruột?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q6" value="A"> A. Sắt</label>
+        <label class="opt"><input type="radio" name="q6" value="B"> B. Canxi và phốt phát</label>
+        <label class="opt"><input type="radio" name="q6" value="C"> C. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q6" value="D"> D. Acid folic</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q7">
+      <h3>7. Dạng hoạt động sinh học chính của vitamin E là?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q7" value="A"> A. Retinol</label>
+        <label class="opt"><input type="radio" name="q7" value="B"> B. Tocopherol</label>
+        <label class="opt"><input type="radio" name="q7" value="C"> C. Ergocalciferol</label>
+        <label class="opt"><input type="radio" name="q7" value="D"> D. Thiamin</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q8">
+      <h3>8. Vitamin K chủ yếu tham gia cơ chế nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q8" value="A"> A. Tổng hợp collagen</label>
+        <label class="opt"><input type="radio" name="q8" value="B"> B. Tổng hợp các yếu tố đông máu (ví dụ prothrombin)</label>
+        <label class="opt"><input type="radio" name="q8" value="C"> C. Hấp thu vitamin D</label>
+        <label class="opt"><input type="radio" name="q8" value="D"> D. Chống oxy hóa</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q9">
+      <h3>9. Vitamin B1 còn gọi là tên nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q9" value="A"> A. Riboflavin</label>
+        <label class="opt"><input type="radio" name="q9" value="B"> B. Thiamin</label>
+        <label class="opt"><input type="radio" name="q9" value="C"> C. Pyridoxin</label>
+        <label class="opt"><input type="radio" name="q9" value="D"> D. Cyanocobalamin</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q10">
+      <h3>10. Vitamin B2 còn gọi là?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q10" value="A"> A. Niacin</label>
+        <label class="opt"><input type="radio" name="q10" value="B"> B. Riboflavin</label>
+        <label class="opt"><input type="radio" name="q10" value="C"> C. Biotin</label>
+        <label class="opt"><input type="radio" name="q10" value="D"> D. Folic acid</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q11">
+      <h3>11. Vitamin C còn gọi là gì?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q11" value="A"> A. Axit ascorbic</label>
+        <label class="opt"><input type="radio" name="q11" value="B"> B. Axit nicotinic</label>
+        <label class="opt"><input type="radio" name="q11" value="C"> C. Thiamin</label>
+        <label class="opt"><input type="radio" name="q11" value="D"> D. Retinol</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q12">
+      <h3>12. Biotin thường được gọi là vitamin nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q12" value="A"> A. Vitamin H (Biotin)</label>
+        <label class="opt"><input type="radio" name="q12" value="B"> B. Vitamin B12</label>
+        <label class="opt"><input type="radio" name="q12" value="C"> C. Vitamin K</label>
+        <label class="opt"><input type="radio" name="q12" value="D"> D. Vitamin D</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q13">
+      <h3>13. Vitamin B12 chứa nguyên tố kim loại nào trong cấu trúc?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q13" value="A"> A. Cobalt</label>
+        <label class="opt"><input type="radio" name="q13" value="B"> B. Sắt</label>
+        <label class="opt"><input type="radio" name="q13" value="C"> C. Kẽm</label>
+        <label class="opt"><input type="radio" name="q13" value="D"> D. Đồng</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q14">
+      <h3>14. Thuốc kháng sinh kéo dài ảnh hưởng tới vitamin nào do làm giảm vi khuẩn đường ruột?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q14" value="A"> A. Vitamin A</label>
+        <label class="opt"><input type="radio" name="q14" value="B"> B. Vitamin K</label>
+        <label class="opt"><input type="radio" name="q14" value="C"> C. Vitamin D</label>
+        <label class="opt"><input type="radio" name="q14" value="D"> D. Vitamin C</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="C" id="q15">
+      <h3>15. Chất nào sau đây là tiền vitamin D trong da?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q15" value="A"> A. Ergosterol</label>
+        <label class="opt"><input type="radio" name="q15" value="B"> B. β-Carotene</label>
+        <label class="opt"><input type="radio" name="q15" value="C"> C. 7-dehydrocholesterol</label>
+        <label class="opt"><input type="radio" name="q15" value="D"> D. Retinol</label>
+      </div>
+      <div class="answer">Đáp án: C</div>
+    </div>
+
+    <div class="q" data-answer="C" id="q16">
+      <h3>16. Vitamin B6 ở dạng hoạt động là dạng nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q16" value="A"> A. Riboflavin</label>
+        <label class="opt"><input type="radio" name="q16" value="B"> B. Biotin</label>
+        <label class="opt"><input type="radio" name="q16" value="C"> C. Pyridoxal phosphate (PLP)</label>
+        <label class="opt"><input type="radio" name="q16" value="D"> D. Thiamin pyrophosphate</label>
+      </div>
+      <div class="answer">Đáp án: C</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q17">
+      <h3>17. Vitamin B2 tham gia tạo ra những coenzyme nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q17" value="A"> A. FMN và FAD</label>
+        <label class="opt"><input type="radio" name="q17" value="B"> B. NAD và NADP</label>
+        <label class="opt"><input type="radio" name="q17" value="C"> C. CoA và lipoamide</label>
+        <label class="opt"><input type="radio" name="q17" value="D"> D. ATP và GTP</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q18">
+      <h3>18. Thiếu vitamin A kéo dài ảnh hưởng chủ yếu tới bộ phận nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q18" value="A"> A. Thị giác (mắt) — quáng gà, khô giác mạc</label>
+        <label class="opt"><input type="radio" name="q18" value="B"> B. Hệ xương</label>
+        <label class="opt"><input type="radio" name="q18" value="C"> C. Huyết học</label>
+        <label class="opt"><input type="radio" name="q18" value="D"> D. Hệ thần kinh trung ương</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q19">
+      <h3>19. Vitamin là những chất mà cơ thể cần với lượng như thế nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q19" value="A"> A. Với một lượng rất nhỏ nhưng thiết yếu</label>
+        <label class="opt"><input type="radio" name="q19" value="B"> B. Với lượng lớn để tạo năng lượng</label>
+        <label class="opt"><input type="radio" name="q19" value="C"> C. Không cần thiết</label>
+        <label class="opt"><input type="radio" name="q19" value="D"> D. Chỉ cần trong thời kỳ mang thai</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q20">
+      <h3>20. Vitamin A tồn tại trong cơ thể chủ yếu ở dạng nào để dự trữ?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q20" value="A"> A. Dạng tự do (retinol tự do)</label>
+        <label class="opt"><input type="radio" name="q20" value="B"> B. Dạng este hóa (retinyl ester) trong gan</label>
+        <label class="opt"><input type="radio" name="q20" value="C"> C. Dạng phosphat</label>
+        <label class="opt"><input type="radio" name="q20" value="D"> D. Dạng glucuronide</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <!-- ========== THÔNG HIỂU (15 câu: q21-q35) ========== -->
+    <div class="q" data-answer="A" id="q21">
+      <h3>21. Cơ chế chính giúp vitamin D tăng nồng độ canxi huyết là?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q21" value="A"> A. Tăng hấp thu canxi ở ruột, tăng tái hấp thu ở thận, và ảnh hưởng đến chuyển hóa xương</label>
+        <label class="opt"><input type="radio" name="q21" value="B"> B. Tăng bài xuất canxi qua thận</label>
+        <label class="opt"><input type="radio" name="q21" value="C"> C. Kết hợp trực tiếp với hemoglobin</label>
+        <label class="opt"><input type="radio" name="q21" value="D"> D. Ức chế hoạt động của PTH</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q22">
+      <h3>22. Vitamin C giúp hấp thu sắt trong thực phẩm bằng cách nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q22" value="A"> A. Khử Fe³⁺ thành Fe²⁺ dễ hấp thu ở ruột</label>
+        <label class="opt"><input type="radio" name="q22" value="B"> B. Tạo phức không tan với sắt</label>
+        <label class="opt"><input type="radio" name="q22" value="C"> C. Ức chế hấp thu sắt</label>
+        <label class="opt"><input type="radio" name="q22" value="D"> D. Kích thích bài tiết sắt</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q23">
+      <h3>23. Thiếu vitamin B1 (thiamin) làm rối loạn chuyển hóa vì thiếu coenzyme nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q23" value="A"> A. Thiamin pyrophosphate (TPP)</label>
+        <label class="opt"><input type="radio" name="q23" value="B"> B. FMN</label>
+        <label class="opt"><input type="radio" name="q23" value="C"> C. PLP</label>
+        <label class="opt"><input type="radio" name="q23" value="D"> D. NADPH</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="D" id="q24">
+      <h3>24. Vitamin A và β-carotene khác nhau ở điểm nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q24" value="A"> A. β-carotene chỉ có trong động vật</label>
+        <label class="opt"><input type="radio" name="q24" value="B"> B. Vitamin A không liên quan đến thị giác</label>
+        <label class="opt"><input type="radio" name="q24" value="C"> C. β-carotene là dạng hoạt động của vitamin A</label>
+        <label class="opt"><input type="radio" name="q24" value="D"> D. β-carotene là tiền chất (provitamin) có thể chuyển thành vitamin A</label>
+      </div>
+      <div class="answer">Đáp án: D</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q25">
+      <h3>25. Thiếu vitamin C gây bệnh gì đặc trưng?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q25" value="A"> A. Scorbut (bệnh hoại huyết)</label>
+        <label class="opt"><input type="radio" name="q25" value="B"> B. Beri-beri</label>
+        <label class="opt"><input type="radio" name="q25" value="C"> C. Còi xương</label>
+        <label class="opt"><input type="radio" name="q25" value="D"> D. Thiếu máu ác tính</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q26">
+      <h3>26. Vai trò chính của vitamin E trong tế bào là gì?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q26" value="A"> A. Tác dụng chống oxy hóa, bảo vệ màng tế bào khỏi peroxyl radicals</label>
+        <label class="opt"><input type="radio" name="q26" value="B"> B. Tăng hấp thu canxi</label>
+        <label class="opt"><input type="radio" name="q26" value="C"> C. Kích thích tổng hợp collagen</label>
+        <label class="opt"><input type="radio" name="q26" value="D"> D. Tham gia tổng hợp DNA</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q27">
+      <h3>27. Vitamin B6 (PLP) là coenzyme cho phản ứng nào sau đây?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q27" value="A"> A. Transaminase (chuyển amin)</label>
+        <label class="opt"><input type="radio" name="q27" value="B"> B. Lipase</label>
+        <label class="opt"><input type="radio" name="q27" value="C"> C. DNA polymerase</label>
+        <label class="opt"><input type="radio" name="q27" value="D"> D. Pepsin</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q28">
+      <h3>28. Vitamin B12 tham gia phản ứng chuyển nhóm methyl (transmethylation). Thiếu B12 gây hậu quả nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q28" value="A"> A. Tăng tổng hợp DNA</label>
+        <label class="opt"><input type="radio" name="q28" value="B"> B. Thiếu máu megaloblastic do rối loạn tổng hợp DNA</label>
+        <label class="opt"><input type="radio" name="q28" value="C"> C. Xơ vữa động mạch trực tiếp</label>
+        <label class="opt"><input type="radio" name="q28" value="D"> D. Không ảnh hưởng gì</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q29">
+      <h3>29. Tại sao vitamin tan trong lipid dễ tích tụ và gây độc nếu dùng quá liều?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q29" value="A"> A. Vì chúng lưu trữ trong mô mỡ và gan, bài tiết chậm</label>
+        <label class="opt"><input type="radio" name="q29" value="B"> B. Vì chúng không hấp thu qua ruột</label>
+        <label class="opt"><input type="radio" name="q29" value="C"> C. Vì chúng phân hủy ngay khi nấu ăn</label>
+        <label class="opt"><input type="radio" name="q29" value="D"> D. Vì chúng tan trong nước</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q30">
+      <h3>30. Trong bảo quản thực phẩm, vitamin nào dễ bị phá hủy bởi oxy và ánh sáng?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q30" value="A"> A. Vitamin A</label>
+        <label class="opt"><input type="radio" name="q30" value="B"> B. Vitamin B12</label>
+        <label class="opt"><input type="radio" name="q30" value="C"> C. Vitamin K</label>
+        <label class="opt"><input type="radio" name="q30" value="D"> D. Biotin</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q31">
+      <h3>31. Nguồn thực phẩm giàu vitamin B1 (thiamin) thường là?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q31" value="A"> A. Trái cây họ cam</label>
+        <label class="opt"><input type="radio" name="q31" value="B"> B. Mầm ngũ cốc, thịt lợn, men bia</label>
+        <label class="opt"><input type="radio" name="q31" value="C"> C. Dầu thực vật</label>
+        <label class="opt"><input type="radio" name="q31" value="D"> D. Muối ăn</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q32">
+      <h3>32. Tác dụng quan trọng của vitamin C đối với mô liên kết là gì?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q32" value="A"> A. Cần cho hydroxyl hóa proline và lysine để tổng hợp collagen</label>
+        <label class="opt"><input type="radio" name="q32" value="B"> B. Kích thích tách nước</label>
+        <label class="opt"><input type="radio" name="q32" value="C"> C. Là thành phần của hemoglobin</label>
+        <label class="opt"><input type="radio" name="q32" value="D"> D. Tổng hợp vitamin D</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q33">
+      <h3>33. Trong chuyển hóa tryptophan, thiếu vitamin B6 có thể dẫn tới thiếu hụt chất nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q33" value="A"> A. NAD⁺</label>
+        <label class="opt"><input type="radio" name="q33" value="B"> B. Niacin (vitamin PP)</label>
+        <label class="opt"><input type="radio" name="q33" value="C"> C. Vitamin D</label>
+        <label class="opt"><input type="radio" name="q33" value="D"> D. Vitamin K</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q34">
+      <h3>34. Chất chuyển hóa nào tích tụ khi thiếu B1 gây độc cho hệ thần kinh?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q34" value="A"> A. Pyruvate và lactate (tích tụ axit pyruvic)</label>
+        <label class="opt"><input type="radio" name="q34" value="B"> B. Cholesterol</label>
+        <label class="opt"><input type="radio" name="q34" value="C"> C. Glycogen</label>
+        <label class="opt"><input type="radio" name="q34" value="D"> D. Hem</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q35">
+      <h3>35. Vitamin B12 cần yếu tố nội tại (intrinsic factor) để hấp thu ở đâu?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q35" value="A"> A. Đoạn cuối ruột non (ileum)</label>
+        <label class="opt"><input type="radio" name="q35" value="B"> B. Dạ dày</label>
+        <label class="opt"><input type="radio" name="q35" value="C"> C. Đại tràng</label>
+        <label class="opt"><input type="radio" name="q35" value="D"> D. Thực quản</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <!-- ========== VẬN DỤNG LÂM SÀNG (15 câu: q36-q50) ========== -->
+    <div class="q" data-answer="B" id="q36">
+      <h3>36. Một bệnh nhân có nhìn kém lúc trời tối, nhạy cảm ánh sáng giảm, nghi vấn thiếu vitamin nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q36" value="A"> A. Vitamin D</label>
+        <label class="opt"><input type="radio" name="q36" value="B"> B. Vitamin A</label>
+        <label class="opt"><input type="radio" name="q36" value="C"> C. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q36" value="D"> D. Vitamin K</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q37">
+      <h3>37. Trẻ sơ sinh không được tiêm vitamin K lúc sinh dễ gặp vấn đề nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q37" value="A"> A. Còi xương</label>
+        <label class="opt"><input type="radio" name="q37" value="B"> B. Xuất huyết nội, chảy máu rốn</label>
+        <label class="opt"><input type="radio" name="q37" value="C"> C. Scorbut</label>
+        <label class="opt"><input type="radio" name="q37" value="D"> D. Thiếu máu do B12</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q38">
+      <h3>38. Trẻ 10 tháng chậm biết đi, chân vòng kiềng. Triệu chứng này gợi ý thiếu hụt vitamin nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q38" value="A"> A. Vitamin D</label>
+        <label class="opt"><input type="radio" name="q38" value="B"> B. Vitamin B1</label>
+        <label class="opt"><input type="radio" name="q38" value="C"> C. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q38" value="D"> D. Vitamin E</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q39">
+      <h3>39. Người nghiện rượu nặng thường dễ thiếu vitamin nào gây triệu chứng thần kinh và thiếu năng lượng?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q39" value="A"> A. Vitamin B1 (thiamin)</label>
+        <label class="opt"><input type="radio" name="q39" value="B"> B. Vitamin D</label>
+        <label class="opt"><input type="radio" name="q39" value="C"> C. Vitamin K</label>
+        <label class="opt"><input type="radio" name="q39" value="D"> D. Biotin</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q40">
+      <h3>40. Bệnh nhân có vết thương lâu lành, chảy máu lợi, nghi ngờ thiếu vitamin nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q40" value="A"> A. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q40" value="B"> B. Vitamin A</label>
+        <label class="opt"><input type="radio" name="q40" value="C"> C. Vitamin B2</label>
+        <label class="opt"><input type="radio" name="q40" value="D"> D. Vitamin K</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q41">
+      <h3>41. Bệnh nhân thiếu máu hồng cầu to kèm rối loạn thần kinh ngoại biên có thể thiếu gì?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q41" value="A"> A. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q41" value="B"> B. Vitamin B12</label>
+        <label class="opt"><input type="radio" name="q41" value="C"> C. Vitamin K</label>
+        <label class="opt"><input type="radio" name="q41" value="D"> D. Vitamin D</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="C" id="q42">
+      <h3>42. Bệnh nhân đang dùng isoniazid điều trị lao có nguy cơ thiếu vitamin nào nếu không bổ sung?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q42" value="A"> A. Vitamin B12</label>
+        <label class="opt"><input type="radio" name="q42" value="B"> B. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q42" value="C"> C. Vitamin B6 (pyridoxine)</label>
+        <label class="opt"><input type="radio" name="q42" value="D"> D. Vitamin K</label>
+      </div>
+      <div class="answer">Đáp án: C</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q43">
+      <h3>43. Phụ nữ mang thai nên thận trọng với vitamin nào vì dùng quá liều có thể gây quái thai?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q43" value="A"> A. Vitamin A (retinoids)</label>
+        <label class="opt"><input type="radio" name="q43" value="B"> B. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q43" value="C"> C. Vitamin B1</label>
+        <label class="opt"><input type="radio" name="q43" value="D"> D. Vitamin E</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q44">
+      <h3>44. Trẻ sơ sinh thường được tiêm vitamin K ngay sau sinh nhằm mục đích gì?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q44" value="A"> A. Ngăn ngừa xuất huyết do thiếu K khi hệ vi khuẩn ruột chưa phát triển</label>
+        <label class="opt"><input type="radio" name="q44" value="B"> B. Tăng hấp thu canxi</label>
+        <label class="opt"><input type="radio" name="q44" value="C"> C. Ngăn ngừa còi xương</label>
+        <label class="opt"><input type="radio" name="q44" value="D"> D. Bảo vệ giác mạc</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q45">
+      <h3>45. Bệnh nhân bị tăng canxi huyết, sỏi thận sau dùng liều cao kéo dài của vitamin nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q45" value="A"> A. Vitamin D</label>
+        <label class="opt"><input type="radio" name="q45" value="B"> B. Vitamin B2</label>
+        <label class="opt"><input type="radio" name="q45" value="C"> C. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q45" value="D"> D. Vitamin K</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q46">
+      <h3>46. Một bệnh nhân thiếu máu sideroblastic (không đáp ứng sắt) có thể dùng bổ sung vitamin nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q46" value="A"> A. Vitamin B6 (pyridoxine)</label>
+        <label class="opt"><input type="radio" name="q46" value="B"> B. Vitamin B12</label>
+        <label class="opt"><input type="radio" name="q46" value="C"> C. Vitamin A</label>
+        <label class="opt"><input type="radio" name="q46" value="D"> D. Vitamin D</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q47">
+      <h3>47. Bệnh nhân có vết bầm tím, xuất huyết dễ xảy ra sau dùng kháng sinh dài ngày. Bạn nghi ngờ thiếu vitamin nào?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q47" value="A"> A. Vitamin K</label>
+        <label class="opt"><input type="radio" name="q47" value="B"> B. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q47" value="C"> C. Vitamin E</label>
+        <label class="opt"><input type="radio" name="q47" value="D"> D. Vitamin B1</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q48">
+      <h3>48. Ăn nhiều trứng sống có thể gây thiếu vitamin nào do avidin trong lòng trắng liên kết giữ chặt?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q48" value="A"> A. Biotin (vitamin H)</label>
+        <label class="opt"><input type="radio" name="q48" value="B"> B. Vitamin B2</label>
+        <label class="opt"><input type="radio" name="q48" value="C"> C. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q48" value="D"> D. Vitamin K</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <div class="q" data-answer="B" id="q49">
+      <h3>49. Bệnh nhân thiếu vitamin B2 thường gặp các triệu chứng nào ở da và niêm mạc?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q49" value="A"> A. Xương yếu</label>
+        <label class="opt"><input type="radio" name="q49" value="B"> B. Nứt môi, viêm lưỡi, viêm da quanh mũi-miệng</label>
+        <label class="opt"><input type="radio" name="q49" value="C"> C. Mù màu</label>
+        <label class="opt"><input type="radio" name="q49" value="D"> D. Tăng huyết áp</label>
+      </div>
+      <div class="answer">Đáp án: B</div>
+    </div>
+
+    <div class="q" data-answer="A" id="q50">
+      <h3>50. Trong bệnh còi xương, điều trị bằng vitamin nào có hiệu quả?</h3>
+      <div class="opts">
+        <label class="opt"><input type="radio" name="q50" value="A"> A. Vitamin D</label>
+        <label class="opt"><input type="radio" name="q50" value="B"> B. Vitamin A</label>
+        <label class="opt"><input type="radio" name="q50" value="C"> C. Vitamin C</label>
+        <label class="opt"><input type="radio" name="q50" value="D"> D. Vitamin K</label>
+      </div>
+      <div class="answer">Đáp án: A</div>
+    </div>
+
+    <!-- END QUESTIONS -->
+
+    <div class="result hidden card" id="resultBox"></div>
+
+  </form>
+
+  <footer>
+    <div class="meta">Ghi chú: Mức độ câu hỏi (Nhận biết/Thông hiểu/Vận dụng) được lưu ẩn trong tài liệu. Bạn có thể chỉnh sửa hoặc thêm giải thích dưới mỗi <code class="meta">.answer</code> nếu cần.</div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const form = document.getElementById('quizForm');
+  const checkBtn = document.getElementById('checkBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const scoreBox = document.getElementById('scoreBox');
+  const resultBox = document.getElementById('resultBox');
+
+  function getQuestions() {
+    return Array.from(document.querySelectorAll('.q'));
+  }
+
+  function grade() {
+    const qs = getQuestions();
+    let correctCount = 0;
+    let answered = 0;
+    resultBox.innerHTML = '';
+    resultBox.classList.add('hidden');
+    qs.forEach((q, idx) => {
+      const radios = q.querySelectorAll('input[type="radio"]');
+      let chosen = null;
+      radios.forEach(r => { if(r.checked) chosen = r.value; });
+      const correct = q.getAttribute('data-answer');
+      const ansDiv = q.querySelector('.answer');
+      ansDiv.style.display = 'block';
+
+      q.classList.remove('correct','incorrect');
+
+      if (chosen) answered++;
+      if (chosen === correct) {
+        correctCount++;
+        q.classList.add('correct');
+      } else {
+        q.classList.add('incorrect');
+      }
+    });
+
+    const total = qs.length;
+    const percent = Math.round((correctCount/total)*100);
+    scoreBox.textContent = `Bạn đạt ${correctCount}/${total} (${percent}%) — Đã trả lời ${answered}/${total}`;
+    scoreBox.classList.remove('hidden');
+
+    // show detailed result summary
+    resultBox.classList.remove('hidden');
+    resultBox.innerHTML = `
+      <div style="font-weight:700;margin-bottom:8px">Kết quả</div>
+      <div>Đúng: ${correctCount} &nbsp;&nbsp; Sai: ${total - correctCount} &nbsp;&nbsp; Tỉ lệ: ${percent}%</div>
+      <div style="margin-top:8px;color:#555">Các ô màu xanh là câu đúng, đỏ là câu sai. Các đáp án đúng đã hiển thị bên dưới mỗi câu.</div>
+    `;
+    resultBox.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  checkBtn.addEventListener('click', function(){
+    grade();
+  });
+
+  resetBtn.addEventListener('click', function(){
+    // clear selections
+    const inputs = form.querySelectorAll('input[type="radio"]');
+    inputs.forEach(i => i.checked = false);
+    // hide answers & states
+    const qs = getQuestions();
+    qs.forEach(q => {
+      q.classList.remove('correct','incorrect');
+      const ans = q.querySelector('.answer');
+      ans.style.display = 'none';
+    });
+    scoreBox.classList.add('hidden');
+    resultBox.classList.add('hidden');
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // Allow Enter to submit grade
+  form.addEventListener('submit', function(e){ e.preventDefault(); grade(); });
+})();
+</script>
+</body>
+</html>
